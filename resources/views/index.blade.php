@@ -37,6 +37,13 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    {{-- Force Custom Font --}}
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: 'Raleway', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+        }
+    </style>
 </head>
 
 <body class="hold-transition {{config('admin.skin')}} {{join(' ', config('admin.layout'))}}">
