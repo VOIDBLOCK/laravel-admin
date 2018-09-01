@@ -44,6 +44,12 @@
             font-family: 'Raleway', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
         }
     </style>
+    
+    @if( file_exists(public_path('favicon.png')) )
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    @elseif( file_exists(public_path('favicon.ico')) )
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    @endif
 </head>
 
 <body class="hold-transition {{config('admin.skin')}} {{join(' ', config('admin.layout'))}}">
