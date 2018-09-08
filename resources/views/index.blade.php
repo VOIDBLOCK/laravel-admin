@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/AdminLTE/dist/css/skins/" . config('admin.skin') .".min.css") }}">
 
     {!! Admin::css() !!}
+    
     <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/laravel-admin/laravel-admin.css") }}">
     <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/nprogress/nprogress.css") }}">
     <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/sweetalert/dist/sweetalert.css") }}">
@@ -38,10 +39,15 @@
     <![endif]-->
 
     {{-- Force Custom Font --}}
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
+    @php
+        $fontFamily = config('admin.font_family', 'Raleway');
+        $fontFamilyName = config('admin.font_family_name', 'Raleway');
+        $fontFamilyWeights = config('admin.font_family_weights', '300,500,900');
+    @endphp
+    <link href="https://fonts.googleapis.com/css?family={{ $fontFamily }}:{{ $fontFamilyWeights }}" rel="stylesheet">
     <style type="text/css">
         body {
-            font-family: 'Raleway', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+            font-family: {{ $fontFamilyName }}, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
         }
     </style>
     
@@ -49,6 +55,10 @@
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     @elseif( file_exists(public_path('favicon.ico')) )
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    @endif
+    
+    @if( file_exists(public_path('css/admin_custom.css')) )
+      <link rel="stylesheet" href="{{ admin_asset("/css/admin_custom.css") }}">
     @endif
 </head>
 

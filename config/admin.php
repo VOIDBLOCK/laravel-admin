@@ -11,7 +11,18 @@ return [
     | login page.
     |
     */
-    'name' => 'Laravel-admin',
+    'name' => 'VOIDBLOCK',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Unique Email Addresses
+    |--------------------------------------------------------------------------
+    |
+    | This value is a boolean set to true, or false, which indicates whether
+    | to encforce using a unique email address for `admin_users`, or not.
+    | 
+    */
+    'unique_email' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +33,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>VOID</b>BLOCK',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +45,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>La</b>',
+    'logo-mini' => '<b>V</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -75,7 +86,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title' => 'Admin',
+    'title' => 'Administration Panel',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +96,7 @@ return [
     | If your page is going to be accessed via https, set it to `true`.
     |
     */
-    'secure' => false,
+    'secure' => env('FORCE_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -124,7 +135,7 @@ return [
     'upload' => [
 
         // Disk in `config/filesystem.php`.
-        'disk' => 'admin',
+        'disk' => 'public',
 
         // Image and file upload path under the disk above.
         'directory' => [
@@ -207,7 +218,10 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-blue-light',
+    'skin' => 'skin-black-light',
+    'font_family' => 'Raleway',
+    'font_family_name' => '"Raleway"',
+    'font_family_weights' => '100,300,700,900',
 
     /*
     |--------------------------------------------------------------------------
@@ -241,7 +255,7 @@ return [
     | This version number set will appear in the page footer.
     |
     */
-    'version' => '1.5.x-dev',
+    'version' => '10.5.x-dev',
 
     /*
     |--------------------------------------------------------------------------
@@ -254,5 +268,10 @@ return [
     */
     'extensions' => [
 
+        'media-manager' => [
+        
+            // Select a local disk that you configured in `config/filesystem.php`
+            'disk' => 'public'
+        ],
     ],
 ];

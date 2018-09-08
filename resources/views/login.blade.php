@@ -21,6 +21,23 @@
   <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  
+  {{-- Force Custom Font --}}
+  @php
+    $fontFamily = config('admin.font_family', 'Raleway');
+    $fontFamilyName = config('admin.font_family_name', 'Raleway');
+    $fontFamilyWeights = config('admin.font_family_weights', '300,500,900');
+  @endphp
+  <link href="https://fonts.googleapis.com/css?family={{ $fontFamily }}:{{ $fontFamilyWeights }}" rel="stylesheet">
+  <style type="text/css">
+    body {
+        font-family: {{ $fontFamilyName }}, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    }
+  </style>
+
+  @if( file_exists(public_path('css/admin_login_custom.css')) )
+    <link rel="stylesheet" href="{{ admin_asset("/css/admin_login_custom.css") }}">
+  @endif
 </head>
 <body class="hold-transition login-page" @if(config('admin.login_background_image'))style="background: url({{config('admin.login_background_image')}}) no-repeat;background-size: cover;"@endif>
 <div class="login-box">
