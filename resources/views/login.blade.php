@@ -36,6 +36,7 @@
         @endphp
         <link href="https://fonts.googleapis.com/css?family={{ $fontFamily }}:{{ $fontFamilyWeights }}" rel="stylesheet">
         <style type="text/css">
+            .f-{{ strtolower($fontFamily) }},
             @php echo $tagName; @endphp {
                 font-family: @php echo $fontFamilyName; @endphp, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif {{ ( $useImportant ? '!important' : '') }};
             }
