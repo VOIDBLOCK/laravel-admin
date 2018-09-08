@@ -40,7 +40,7 @@
 
     {{-- Force Custom Font --}}
     @php
-        @families = config('admin.font_family_sets', [[0 => null]]);
+        $families = config('admin.font_family_sets', [[0 => null]]);
     @endphp
     @foreach( $families as $family )
         @php
