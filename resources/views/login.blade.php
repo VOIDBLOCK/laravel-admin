@@ -22,18 +22,25 @@
   <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   
-  {{-- Force Custom Font --}}
-  @php
-    $fontFamily = config('admin.font_family', 'Raleway');
-    $fontFamilyName = config('admin.font_family_name', 'Raleway');
-    $fontFamilyWeights = config('admin.font_family_weights', '300,500,900');
-  @endphp
-  <link href="https://fonts.googleapis.com/css?family={{ $fontFamily }}:{{ $fontFamilyWeights }}" rel="stylesheet">
-  <style type="text/css">
-    body {
-        font-family: @php echo $fontFamilyName; @endphp, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    }
-  </style>
+    {{-- Force Custom Font --}}
+    @php
+        @families = config('admin.font_family_sets', [[0 => null]]);
+    @endphp
+    @foreach( $families as $family )
+        @php
+            $fontFamily = isset($family['family']) ? $family['family'] : config('admin.font_family', 'Raleway');
+            $fontFamilyName = isset($family['name']) ? $family['name'] : config('admin.font_family_name', 'Raleway');
+            $fontFamilyWeights = isset($family['weights']) ? $family['weights'] : config('admin.font_family_weights', '300,500,900');
+            $useImportant = isset($family['important']) && !!$family['important']; 
+            $tagName = isset($family['selector']) ? $family['selector'] : 'body';
+        @endphp
+        <link href="https://fonts.googleapis.com/css?family={{ $fontFamily }}:{{ $fontFamilyWeights }}" rel="stylesheet">
+        <style type="text/css">
+            @php echo $tagName; @endphp {
+                font-family: @php echo $fontFamilyName; @endphp, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif {{ ( $useImportant ? '!important' : '') }};
+            }
+        </style>
+    @endforeach
 
   @if( file_exists(public_path('css/admin_login_custom.css')) )
     <link rel="stylesheet" href="{{ admin_asset("/css/admin_login_custom.css") }}">
