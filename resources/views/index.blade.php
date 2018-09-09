@@ -27,15 +27,18 @@
 
     <!-- REQUIRED JS SCRIPTS -->
     <script src="{{ admin_asset ("/vendor/laravel-admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
+
+    @if( config('admin.is_rtl', false) )
+        <script src="{{ admin_asset("/vendor/laravel-admin/bootstrap-3-arabic-3.3.6/dist/js/bootstrap-arabic.min.js")}}"></script>
+    @else
+        <script src="{{ admin_asset ("/vendor/laravel-admin/AdminLTE/bootstrap/js/bootstrap.min.js") }} "></script>
+    @endif
+
     <script src="{{ admin_asset ("/vendor/laravel-admin/AdminLTE/bootstrap/js/bootstrap.min.js") }}"></script>
     <script src="{{ admin_asset ("/vendor/laravel-admin/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js") }}"></script>
     <script src="{{ admin_asset ("/vendor/laravel-admin/AdminLTE/dist/js/app.min.js") }}"></script>
     <script src="{{ admin_asset ("/vendor/laravel-admin/jquery-pjax/jquery.pjax.js") }}"></script>
     <script src="{{ admin_asset ("/vendor/laravel-admin/nprogress/nprogress.js") }}"></script>
-
-    @if( config('admin.is_rtl', false) )
-        <script src="{{ admin_asset("/vendor/laravel-admin/bootstrap-3-arabic-3.3.6/dist/js/bootstrap-arabic.min.js")}}"></script>
-    @endif
   
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
