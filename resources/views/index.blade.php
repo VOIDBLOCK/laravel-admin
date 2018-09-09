@@ -34,7 +34,7 @@
     <script src="{{ admin_asset ("/vendor/laravel-admin/nprogress/nprogress.js") }}"></script>
 
     @if( config('admin.is_rtl', false) )
-        <script src="{{ admin_asset("/vendor/laravel-admin/bootstrap-3.3.6/dist/js/bootstrap.min.js")}}"></script>
+        <script src="{{ admin_asset("/vendor/laravel-admin/bootstrap-3-arabic-3.3.6/dist/js/bootstrap-arabic.min.js")}}"></script>
     @endif
   
     <!--[if lt IE 9]>
@@ -74,7 +74,7 @@
     @endif
 
     @if( config('admin.is_rtl', false) )
-      <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/bootstrap-3.3.6/dist/css/bootstrap.min.css") }}">
+      <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/bootstrap-3-arabic-3.3.6/dist/css/bootstrap-arabic.min.css") }}">
       @if( file_exists(public_path('css/admin_rtl_custom.css')) )
         <link rel="stylesheet" href="{{ admin_asset("/css/admin_rtl_custom.css") }}">
       @endif
