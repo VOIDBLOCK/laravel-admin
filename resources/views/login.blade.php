@@ -43,8 +43,16 @@
         </style>
     @endforeach
 
+
   @if( file_exists(public_path('css/admin_login_custom.css')) )
     <link rel="stylesheet" href="{{ admin_asset("/css/admin_login_custom.css") }}">
+  @endif
+
+  @if( config('admin.is_rtl', false) )
+    <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/bootstrap-3.3.6/dist/css/bootstrap.min.css") }}">
+    @if( file_exists(public_path('css/admin_login_rtl_custom.css')) )
+      <link rel="stylesheet" href="{{ admin_asset("/css/admin_login_rtl_custom.css") }}">
+    @endif
   @endif
 </head>
 <body class="hold-transition login-page" @if(config('admin.login_background_image'))style="background: url({{config('admin.login_background_image')}}) no-repeat;background-size: cover;"@endif>
@@ -101,6 +109,11 @@
 <script src="{{ admin_asset("/vendor/laravel-admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
 <!-- iCheck -->
 <script src="{{ admin_asset("/vendor/laravel-admin/AdminLTE/plugins/iCheck/icheck.min.js")}}"></script>
+
+@if( config('admin.is_rtl', false) )
+  <script src="{{ admin_asset("/vendor/laravel-admin/bootstrap-3.3.6/dist/js/bootstrap.min.js")}}"></script>
+@endif
+
 <script>
   $(function () {
     $('input').iCheck({

@@ -33,6 +33,10 @@
     <script src="{{ admin_asset ("/vendor/laravel-admin/jquery-pjax/jquery.pjax.js") }}"></script>
     <script src="{{ admin_asset ("/vendor/laravel-admin/nprogress/nprogress.js") }}"></script>
 
+    @if( config('admin.is_rtl', false) )
+        <script src="{{ admin_asset("/vendor/laravel-admin/bootstrap-3.3.6/dist/js/bootstrap.min.js")}}"></script>
+    @endif
+  
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -67,6 +71,13 @@
     
     @if( file_exists(public_path('css/admin_custom.css')) )
       <link rel="stylesheet" href="{{ admin_asset("/css/admin_custom.css") }}">
+    @endif
+
+    @if( config('admin.is_rtl', false) )
+      <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/bootstrap-3.3.6/dist/css/bootstrap.min.css") }}">
+      @if( file_exists(public_path('css/admin_rtl_custom.css')) )
+        <link rel="stylesheet" href="{{ admin_asset("/css/admin_rtl_custom.css") }}">
+      @endif
     @endif
 </head>
 

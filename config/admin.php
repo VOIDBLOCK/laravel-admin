@@ -219,6 +219,7 @@ return [
     |
     */
     'skin' => 'skin-black-light',
+    'is_rtl' => env('ADMIN_RTL', false),
     'font_family' => 'Raleway',
     'font_family_name' => '"Raleway"',
     'font_family_weights' => '100,300,700,900',
