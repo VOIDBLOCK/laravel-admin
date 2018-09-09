@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}" class="lang-{{ App::getLocale() }} {{ (config('admin.is_rtl', false) ? 'layout-rtl': 'layout-ltr') }}">
+<html lang="{{ App::getLocale() }}" class="lang-{{ App::getLocale() }} layout-{{ Admin::getDirection() }}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

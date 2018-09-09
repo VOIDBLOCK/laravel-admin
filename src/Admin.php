@@ -30,6 +30,13 @@ class Admin
     protected $navbar;
 
     /**
+     * Language Direction
+     * 
+     * @var langDirection
+     */
+    protected static $langDirection;
+
+    /**
      * @var array
      */
     public static $script = [];
@@ -299,5 +306,31 @@ class Admin
     public static function extend($name, $class)
     {
         static::$extensions[$name] = $class;
+    }
+
+    /**
+     * Set Administrator Area Direction
+     *
+     * @param string $dir    Either RTL, or LTR
+     *
+     * @return void
+     */
+    public static function setDirection($dir = 'ltr')
+    {
+        static::$langDirection = in_array($dir, ['ltr', 'rtl']) ? $dir : 'ltr';
+    }
+
+    /**
+     * Get Administrator Area Direction
+     *
+     * @return void
+     */
+    public static function getDirection()
+    {
+        if (is_null(static::$langDirection)) {
+            static::$langDirection = config('admin.is_rtl', false) ? 'rtl' : 'ltr';
+        }
+
+        return static::$langDirection;
     }
 }
