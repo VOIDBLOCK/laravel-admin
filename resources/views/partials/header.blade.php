@@ -40,7 +40,11 @@
 
                             <p>
                                 {{ Admin::user()->name }}
-                                <small>Member since admin {{ Admin::user()->created_at }}</small>
+                                @if (Lang::has($translation = 'admin.member_since'))
+                                    <small>{{ $translation }} {{ Admin::user()->created_at }}</small>
+                                @else
+                                    <small>{{ __('Member since') }} {{ Admin::user()->created_at }}</small>
+                                @endif
                             </p>
                         </li>
                         <li class="user-footer">
