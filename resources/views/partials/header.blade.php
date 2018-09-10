@@ -41,7 +41,7 @@
                             <p>
                                 {{ Admin::user()->name }}
                                 @if (Lang::has($translation = 'admin.member_since'))
-                                    <small>{{ $translation }} {{ Admin::user()->created_at }}</small>
+                                    <small>{{ __($translation) }} {{ Admin::user()->created_at }}</small>
                                 @else
                                     <small>{{ __('Member since') }} {{ Admin::user()->created_at }}</small>
                                 @endif
