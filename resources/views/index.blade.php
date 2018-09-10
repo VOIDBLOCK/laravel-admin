@@ -73,7 +73,7 @@
       <link rel="stylesheet" href="{{ admin_asset("/css/admin_custom.css") }}">
     @endif
 
-    @if( config('admin.is_rtl', false) )
+    @if( Admin::isDirection('rtl') )
       <link rel="stylesheet" href="{{ admin_asset("/vendor/laravel-admin/bootstrap-3-arabic-3.3.6/dist/css/bootstrap-arabic.min.css") }}">
       @if( file_exists(public_path('css/admin_rtl_custom.css')) )
         <link rel="stylesheet" href="{{ admin_asset("/css/admin_rtl_custom.css") }}">

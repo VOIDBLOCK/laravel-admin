@@ -327,10 +327,33 @@ class Admin
      */
     public static function getDirection()
     {
+        static::getDefaultLangFromConfig();
+        return static::$langDirection;
+    }
+
+    /**
+     * Is Currenct Language Direction Equal to..
+     *
+     * @param string $dir    Either RTL, or LTR
+     * 
+     * @return void
+     */
+    public static function isDirection($dir = null)
+    {
+        static::getDefaultLangFromConfig();
+        return static::$langDirection === strtolower(trim($dir));
+    }
+
+    
+    /**
+     * Get Administrator Area Direction
+     *
+     * @return void
+     */
+    protected static function getDefaultLangFromConfig()
+    {
         if (is_null(static::$langDirection)) {
             static::$langDirection = config('admin.is_rtl', false) ? 'rtl' : 'ltr';
         }
-
-        return static::$langDirection;
     }
 }
