@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             {{ $header ?: trans('admin.title') }}
-            <small>{{ $description ?: trans('admin.description') }}</small>
+            <small>{{ $description ? $description : '' }}</small>
         </h1>
 
         <!-- breadcrumb start -->
