@@ -24,7 +24,7 @@ class Column
      */
     public function __construct($width = 12)
     {
-        $this->width   = $width;
+        $this->width = $width;
         $this->filters = new Collection();
     }
 
@@ -51,7 +51,7 @@ class Column
     /**
      * Set column width.
      *
-     * @param integer $width
+     * @param int $width
      */
     public function setWidth($width)
     {
@@ -66,5 +66,15 @@ class Column
     public function width()
     {
         return $this->width;
+    }
+
+    /**
+     * Remove filter from column by id.
+     */
+    public function removeFilterByID($id)
+    {
+        $this->filters = $this->filters->reject(function (AbstractFilter $filter) use ($id) {
+            return $filter->getId() == $id;
+        });
     }
 }
