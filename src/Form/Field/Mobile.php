@@ -27,7 +27,7 @@ $('{$this->getElementClassSelector()}').inputmask($options);
 EOT;
 
         $this->prepend('<i class="fa fa-phone fa-fw"></i>')
-            ->defaultAttribute('style', 'width: 150px');
+            ->defaultAttribute('style', 'width: 180px');
 
         return parent::render();
     }
