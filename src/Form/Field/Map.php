@@ -99,6 +99,14 @@ class Map extends Field
                     lat.val(event.latLng.lat());
                     lng.val(event.latLng.lng());
                 });
+
+                lat.add(lng).on('change', function() {
+                    if (lat.val() && lng.val()) {
+                        var newLatLng = new google.maps.LatLng(lat.val(), lng.val());   
+                        marker.setPosition(newLatLng);
+                        map.setCenter(newLatLng);
+                    }
+                });
             }
     
             initGoogleMap('{$this->id['lat']}{$this->id['lng']}');
@@ -191,3 +199,4 @@ EOT;
 EOT;
     }
 }
+
