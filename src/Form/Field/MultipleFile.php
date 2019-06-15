@@ -26,6 +26,7 @@ class MultipleFile extends Field
      */
     protected static $js = [
         '/vendor/laravel-admin/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js?v=4.3.7',
+        '/vendor/laravel-admin/bootstrap-fileinput/js/plugins/sortable.min.js?v=4.3.7',
         '/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7',
     ];
 
